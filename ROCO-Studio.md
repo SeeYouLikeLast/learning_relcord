@@ -9,13 +9,7 @@ roco@roco:~/backup/roco-studio_12_15/roco-studio/server/mqtt_server$ ./dev.sh
 ```
 roco@roco:~/backup/roco-studio_12_15/roco-studio$ cd client/
 roco@roco:~/backup/roco-studio_12_15/roco-studio/client$ cd web
-roco@roco:~/backup/roco-studio_12_15/roco-studio/client/web$ npm run
-Scripts available in roco-studio@0.0.0 via `npm run`:
-  dev
-    vite
-  build
-    vite build
-  preview
-    vite preview
 roco@roco:~/backup/roco-studio_12_15/roco-studio/client/web$ npm run build
+roco@roco:~/backup/roco-studio_12_15/roco-studio/client/web$ npm run dev
+
 ```
