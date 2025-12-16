@@ -1,0 +1,62 @@
+JSON 对象 (JSON Object) 是 JSON (JavaScript Object Notation) 数据格式中的核心结构之一。
+
+简单来说，JSON 对象就是一个“无序的键值对集合” (Unordered collection of key/value pairs)。
+
+它用来描述一个具体的“事物”，比如一个用户、一辆车、或者是你系统中的一个摄像头配置。
+1. 长什么样？(解剖图)
+
+JSON 对象总是以左花括号 { 开始，以右花括号 } 结束。
+JSON
+
+{
+  "key1": "value1",
+  "key2": 123,
+  "key3": true
+}
+
+语法规则：
+
+    键 (Key)：必须是字符串，且必须用双引号 "" 包裹（例如 "username"）。
+
+    值 (Value)：可以是字符串、数字、布尔值 (true/false)、null、数组 []，甚至是另一个对象 {}（嵌套）。
+
+    分隔符：键和值之间用冒号 : 分隔；键值对之间用逗号 , 分隔。
+
+2. 结合你的项目实例
+
+在你之前的 Monorepo 描述中，JSON 对象无处不在。让我们构造一个符合你场景的 JSON 对象示例，比如**“HTTP API 返回的一个设备状态信息”**：
+JSON
+
+{
+  "device_id": "camera_front_01",      // 字符串
+  "status": "recording",               // 字符串
+  "uptime_seconds": 3600,              // 数字
+  "is_online": true,                   // 布尔值
+  "error_log": null,                   // 空值 (代表无错误)
+  
+  "config": {                          // 值可以是另一个对象 (嵌套)
+    "resolution": "1920x1080",
+    "fps": 30
+  },
+  
+  "supported_modes": [                 // 值可以是数组
+    "night_vision", 
+    "standard", 
+    "hdr"
+  ]
+}
+
+3. 它在编程语言中对应什么？
+
+JSON 是跨语言的文本格式，但当它被代码读取后，会变成语言原生的数据结构：
+语言	对应的原生数据结构	在你的项目中
+Python	字典 (Dictionary / dict)	在你的 FastAPI 中，当你 return {"status": "ok"} 时，Python 字典被自动转换成了 JSON 对象字符串发给前端。
+C++	Struct / Class / Map	在你的 Camera Server 中，如果你用 C++ 解析 JSON（常用库如 nlohmann/json），它通常对应一个类实例或键值对映射。
+JavaScript	Object	在你的 client/web 前端，浏览器收到 JSON 字符串后，用 JSON.parse() 把它变回 JS 对象，方便通过 data.device_id 访问数据。
+4. 为什么不用 XML 而用 JSON 对象？
+
+在你的车联网和嵌入式场景中，JSON 对象有两个巨大优势：
+
+    轻量：相比 XML，它没有繁琐的闭合标签（<tag></tag>），节省带宽（对车联网 V2X 通信很重要）。
+
+    易读：结构清晰，人类一眼就能看懂配置或数据内容。
