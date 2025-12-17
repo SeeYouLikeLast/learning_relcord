@@ -14,6 +14,21 @@ roco@roco:~/backup/roco-studio_12_15/roco-studio/client/web$ npm run dev
 
 ```
 
+## 业务逻辑
+
+外部控制系统将指令发布至 MQTT 服务器（Broker）的 Command 主题。主程序（Main） 作为网关维持与服务器的连接，并在订阅收到消息后对指令进行解析。随后，程序利用内部的指令映射表（Dispatch Map） 将抽象指令转化为具体操作，最终分发给相机、机械臂或 AGV 小车执行。
+
+“核心逻辑：
+
+    订阅：Main 程序连接 MQTT Broker 并监听 Command 主题指令。
+
+    解析：接收并反序列化 JSON 格式的指令负载。
+
+    分发：基于指令映射表（Mapping Table）查找对应回调。
+
+    执行：将控制信号下发至底层硬件（相机/机械臂/AGV）。”
+
+
 ## 单步调试Roco_fair_driver的main.cpp
 这个 `main.cpp` 是一个 **非 ROS 2 依赖的独立驱动程序入口**。它主要扮演“网关”或“中间件”的角色，负责在 MQTT 网络和具体的硬件驱动（如机械臂、相机、AGV小车）之间进行协议转换和指令分发。
 
