@@ -112,3 +112,11 @@ D. Keep Alive (心跳保活)
 
     解耦：前端 Web 不需要知道底层的 C++ 驱动的 IP 地址，也不需要知道它是不是由 Python 写的。大家只需要约定好 Topic 即可。
 
+# 日志级别
+
+级别	常见标记	含义	你的代码中的例子
+Debug	[debug]	调试信息。非常琐碎的细节，只有开发找 Bug 时才看。	logger::set_level(spdlog::level::debug);
+Info	[info]	一般信息。程序正常运行的关键节点，类似“里程碑”。	LOG_INFO("Main", "机械臂控制器连接成功");
+Warn	[warn]	警告。有点不对劲，但程序还能跑，不会崩。	LOG_WARN("Main", "WebSocket连接失败");
+Error	[error]	错误。出大事了，某个功能失效了。	LOG_ERROR("Main", "Failed to connect to MQTT");
+Fatal	[fatal]	致命。程序彻底挂了，必须退出了。	(你的代码中暂时没用到)
