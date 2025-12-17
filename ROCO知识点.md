@@ -1,6 +1,6 @@
 ﻿# MQTT
 
-MQTT (Message Queuing Telemetry Transport) 是目前物联网 (IoT) 领域最主流的通信协议。
+MQTT (Message Queuing Telemetry Transport) 是目前物联网 (IoT) 领域最主流的通信协议。  **端口号** ：**1883** 
 
 如果说 HTTP 是互联网世界的“普通话”（适用于网页浏览、文件下载），那么 MQTT 就是物联网世界的“电报”——它极其轻量、省电、带宽占用极低，且专为网络不稳定的环境设计。
 
@@ -120,3 +120,4 @@ Info	[info]	一般信息。程序正常运行的关键节点，类似“里程�
 Warn	[warn]	警告。有点不对劲，但程序还能跑，不会崩。	LOG_WARN("Main", "WebSocket连接失败");
 Error	[error]	错误。出大事了，某个功能失效了。	LOG_ERROR("Main", "Failed to connect to MQTT");
 Fatal	[fatal]	致命。程序彻底挂了，必须退出了。	(你的代码中暂时没用到)
+
