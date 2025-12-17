@@ -14,6 +14,11 @@ roco@roco:~/backup/roco-studio_12_15/roco-studio/client/web$ npm run dev
 
 ```
 
+## 调试
+单步调试  启动后端
+web      启动前端
+在页面中发送MQTT消息
+
 ## 业务逻辑
 
 外部控制系统将指令发布至 MQTT 服务器（Broker）的 Command 主题。主程序（Main） 作为网关维持与服务器的连接，并在订阅收到消息后对指令进行解析。随后，程序利用内部的指令映射表（Dispatch Map） 将抽象指令转化为具体操作，最终分发给相机、机械臂或 AGV 小车执行。
