@@ -2,6 +2,12 @@
 
 MQTT (Message Queuing Telemetry Transport) 是目前物联网 (IoT) 领域最主流的通信协议。  **端口号** ：**1883** 
 
+端口号 (默认),协议类型,谁去连它？,你的项目用得到吗？
+1883,TCP (MQTT),"C++, Python, Java, 工业设备",是的，这是你目前的主力端口
+8083,WebSockets,"Chrome, Edge, 手机 H5 网页",如果你想写个网页监控大屏，就用它
+8883,SSL/TLS,对安全性要求极高的设备,如果你在局域网内调试，暂时不用
+8084,WSS (Secure),加密的网页连接,生产环境的网页监控
+
 如果说 HTTP 是互联网世界的“普通话”（适用于网页浏览、文件下载），那么 MQTT 就是物联网世界的“电报”——它极其轻量、省电、带宽占用极低，且专为网络不稳定的环境设计。
 
 在你的 roco-studio 项目中，MQTT 是连接前端界面（Web/Tablet）、后端逻辑（ROS2）和底层硬件（Driver）的核心神经系统。
@@ -120,4 +126,5 @@ Info	[info]	一般信息。程序正常运行的关键节点，类似“里程�
 Warn	[warn]	警告。有点不对劲，但程序还能跑，不会崩。	LOG_WARN("Main", "WebSocket连接失败");
 Error	[error]	错误。出大事了，某个功能失效了。	LOG_ERROR("Main", "Failed to connect to MQTT");
 Fatal	[fatal]	致命。程序彻底挂了，必须退出了。	(你的代码中暂时没用到)
+
 
