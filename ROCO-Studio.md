@@ -9,6 +9,8 @@ roco@roco:~/backup/roco-studio_12_15/roco-studio/server/mqtt_server$ ./dev.sh
 ```
 roco@roco:~/backup/roco-studio_12_15/roco-studio$ cd client/
 roco@roco:~/backup/roco-studio_12_15/roco-studio/client$ cd web
+// 把Web下的dist文件夹与node_modules删除，重新install
+// roco@roco:~/backup/roco-studio_12_15/roco-studio/client/web$ npm install
 roco@roco:~/backup/roco-studio_12_15/roco-studio/client/web$ npm run build
 roco@roco:~/backup/roco-studio_12_15/roco-studio/client/web$ npm run dev
 
