@@ -9,6 +9,7 @@ roco@roco:~/backup/roco-studio_12_15/roco-studio/server/mqtt_server$ ./dev.sh
 ```
 roco@roco:~/backup/roco-studio_12_15/roco-studio$ cd client/
 roco@roco:~/backup/roco-studio_12_15/roco-studio/client$ cd web
+// 客户端 调试器 下的代码未更新，是因为客户端的代码有报错
 // 把Web下的dist文件夹与node_modules删除，重新install
 // roco@roco:~/backup/roco-studio_12_15/roco-studio/client/web$ npm install
 roco@roco:~/backup/roco-studio_12_15/roco-studio/client/web$ npm run build
